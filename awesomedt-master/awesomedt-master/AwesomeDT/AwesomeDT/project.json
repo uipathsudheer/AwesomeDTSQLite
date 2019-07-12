@@ -1,0 +1,35 @@
+{
+  "name": "AwesomeDT",
+  "description": "Create Consolidated Data Tables merging a list of multiple data tables where we can also \r\n�\tDynamically Create new columns on the fly\r\n�\tApply filter based on some conditions \r\n�\tSort the data table by desc, asc\r\n�\tTop N Rows\r\n�\tApply Excel formula on the fly\r\n�\tRemove duplicates  \r\nInput Parameters:\r\n1.\tInputDTList : (List<DataTables>)\r\n2.\tCalculationString (String)\r\n\r\nOutput Parameters:\r\n1.\tResultDT (DataTable)\r\n2.\tResultCSV(String)\r\n\r\n\r\nLets say there are 4 different datatables with same schema then we can apply a  series of operations as mentioned below using this custom activity \r\n1+2+3+4 | Remove-Duplicates | where Salary > 40000 | Order By Salary Desc | Select SNo=Row(SNo),  FirstName, LastName, EmployeeName=FirstName&LastName, Salary, EmployeeType , YearlySalary =Salary*12  | Top 5\r\n\r\nNote: the above usecase is just an example to show that we can create any such series of operations on the fly with this custom activity\r\n In general, the same series of operation will take around 14 hours if performed manually. With this custom activity it will take just take few seconds to form this query using AQL\r\n\r\n ",
+  "main": "NewActivity.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "2.5.2",
+    "UiPath.Mail.Activities": "1.3.0",
+    "UiPath.System.Activities": "19.3.0",
+    "UiPath.UIAutomation.Activities": "19.3.0"
+  },
+  "webServices": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "19.7.0.12",
+  "projectVersion": "1.0.3",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "isPausable": true,
+    "requiresUserInteraction": true,
+    "supportsPersistence": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Library",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    }
+  },
+  "expressionLanguage": "VisualBasic"
+}

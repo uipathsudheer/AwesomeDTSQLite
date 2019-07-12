@@ -1,0 +1,37 @@
+Perform Series Of DataTable Operations on One Go
+
+Create Consolidated Data Tables merging a list of multiple data tables where we can also 
+•	Dynamically Create new columns on the fly
+•	Apply filter based on some conditions 
+•	Sort the data table by desc, asc
+•	Top N Rows
+•	Apply Excel formula on the fly
+•	Remove duplicates  
+Input Parameters:
+1.	InputDTList : (List<DataTables>)
+2.	AQLString (String)
+
+Output Parameters:
+1.	ResultDT (DataTable)
+2.	ResultCSV(String)
+
+
+in this verison the following things are working
+-> Merge
+-> Remove Duplicate Rows
+-> Select Specific Columns
+-> On the Fly Columns 
+-> Filter
+-> Top N
+-> Auto Increment (Row Num)
+-> Excel Formulas
+-> Order By
+
+
+AQLString:
+-------------------------------------
+Lets say there are 4 different datatables with same schema then we can apply a  series of operations as mentioned below using this custom activity 
+1+2+3+4 | Remove-Duplicates | where Salary > 40000 | Order By Salary Desc | Select SNo=Row(SNo),  FirstName, LastName, EmployeeName=FirstName&LastName, Salary, EmployeeType , YearlySalary =Salary*12  | Top 5
+
+Note: the above usecase is just an example to show that we can create any such series of operations on the fly with this custom activity
+ In general, the same series of operation will take around 14 hours if performed manually. With this custom activity it will take just take few seconds to form this query using AQL.
